@@ -1,0 +1,14 @@
+C:\Users\Gabriel\Documents\SpaceFlyin\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\Gabriel\Documents\SpaceFlyin\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\Gabriel\Documents\SpaceFlyin\Temp\bin\Debug\MKGlowSystem.dll
+C:\Users\Gabriel\Documents\SpaceFlyin\Temp\bin\Debug\UnityEditor.dll
+C:\Users\Gabriel\Documents\SpaceFlyin\Temp\bin\Debug\UnityEngine.dll
+C:\Users\Gabriel\Documents\SpaceFlyin\Temp\bin\Debug\UnityEngine.UI.dll
+C:\Users\Gabriel\Documents\SpaceFlyin\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\Gabriel\Documents\SpaceFlyin\Temp\bin\Debug\nunit.framework.dll
+C:\Users\Gabriel\Documents\SpaceFlyin\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\Gabriel\Documents\SpaceFlyin\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\Gabriel\Documents\SpaceFlyin\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+C:\Users\Gabriel\Documents\SpaceFlyin\obj\Debug\Assembly-CSharp.dll
+C:\Users\Gabriel\Documents\SpaceFlyin\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Gabriel\Documents\SpaceFlyin\Temp\bin\Debug\Assembly-UnityScript-firstpass.dll

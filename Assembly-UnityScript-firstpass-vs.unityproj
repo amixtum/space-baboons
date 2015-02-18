@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{9BFD99A3-5929-34DA-8838-205A9F5064DF}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-UnityScript-firstpass</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_2;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Standard Assets\Particles\Legacy Particles\TimedObjectDestructor.js" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Mobile\MK_Mobile-Diffuse.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Illumin\MK_Illumin-Glossy.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Cutout\MK_Cutout-Glossy.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Transparent\MK_Transparent-DiffuseBumpRim.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Cutout\MK_Cutout-SoftEdgeUnlit.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Transparent\MK_Transparent-DiffuseRim.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Reflective\MK_Reflective-ParallaxSpec.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Unlit\MK_Unlit-TransparentCutout.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Normal\MK_Normal-ParallaxSpec.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Unlit\MK_Unlit-Transparent.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Normal\MK_Normal-DiffuseBumped.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Normal\MK_Normal-DiffuseBumpSpec.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKGlowEffect\MKGlowBlur.shader" />
+     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Particles\MK_Particles-AdditiveSoft.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Particles\MK_Particles-AdditiveMultiply.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Transparent\MK_Transparent-Diffuse.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Transparent\MK_Transparent-DiffuseBumpSpec.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Mobile\MK_Mobile-DiffuseBumped.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Particles\MK_Particles-MulitplyDouble.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Particles\MK_Particles-Additive.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Normal\MK_Normal-DiffuseDetail.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Lightmapped\MK_Lightmap-DiffuseBumped.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Toon\MK_Toon-Basic.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Cutout\MK_Cutout-DiffuseBumpSpec.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Illumin\MK_Illumin-DiffuseBumpSpec.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Reflective\MK_Reflective-Glossy.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Transparent\MK_Transparent-ParallaxSpec.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Illumin\MK_Illumin-DiffuseBumped.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Normal\MK_Normal-Glossy.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Lightmapped\MK_Lightmap-Diffuse.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Toon\MK_Toon-BasicOutline.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Unlit\MK_Unlit-Normal.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Reflective\MK_Reflective-Diffuse.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKGlowEffect\MKGlowFullScreenDownSample.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Particles\MK_Particles-PremultiplyBlend.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Particles\MK_Particles-Blend.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKGlowEffect\MKGlowFastBlur.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Transparent\MK_Transparent-DiffuseBumped.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Transparent\MK_Transparent-Parallax.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Normal\MK_Normal-Diffuse.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Particles\MK_Particles-Multiply.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Illumin\MK_Illumin-Parallax.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Normal\MK_Normal-Parallax.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Normal\MK_Normal-DiffuseBumpRim.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Mobile\MK_Mobile-DiffuseBumpSpec-1DirectionalLight.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Particles\MK_Particles-AdditiveBlend.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Illumin\MK_Illumin-Diffuse.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Normal\MK_Normal-DiffuseRim.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Illumin\MK_Illumin-ParallaxSpec.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Transparent\MK_Transparent-Glossy.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Cutout\MK_Cutout-Diffuse.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKGlowEffect\MKGlowRender.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Reflective\MK_Reflective-DiffuseBumpedNoLight.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Reflective\MK_Reflective-DiffuseBumpSpec.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKGlowEffect\MKGlowCompose.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Cutout\MK_Cutout-DiffuseBumped.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Reflective\MK_Reflective-Parallax.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Mobile\MK_Mobile-DiffuseBumpSpec.shader" />
+     <None Include="Assets\_MKGlowSystem\_Shader\_MKBase\Reflective\MK_Reflective-DiffuseBumped.shader" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="MKGlowSystem">
+ <HintPath>C:/Users/Gabriel/Documents/SpaceFlyin/Assets/_MKGlowSystem/_Internal/MKGlowSystem.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
