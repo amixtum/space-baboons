@@ -7,6 +7,8 @@ public class ParticleScript : MonoBehaviour {
     public GameObject laser;
     public Transform frontOfShip;
 
+    public float laser_length = 200f;
+
     public void ChangeParticleSpeed(float newSpeed)
     {
         left.startSpeed = newSpeed;
@@ -20,13 +22,12 @@ public class ParticleScript : MonoBehaviour {
 
     public void ShootLaser()
     {
-        
+        Vector3 direction = frontOfShip.parent.forward;
+        float length = laser_length;
+        Vector3 start = frontOfShip.parent.position + frontOfShip.localPosition;
+        Vector3 end = start + (length * direction);
 
-        Quaternion laserRotation = Quaternion.FromToRotation(Vector3.up, frontOfShip.up) * 
-                                   Quaternion.FromToRotation(frontOfShip.up, frontOfShip.forward) *
-                                   Quaternion.FromToRotation(frontOfShip.right, frontOfShip.forward);
-        //Quaternion
-
-        Instantiate(laser, frontOfShip.position, laserRotation);
+        GameObject lzr = Instantiate(laser, start, Quaternion.identity) as GameObject;
+        lzr.transform.position = end;
     }
 }

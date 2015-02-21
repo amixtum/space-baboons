@@ -4,6 +4,7 @@ using System.Collections;
 public class LaserBehaviour : MonoBehaviour {
     private float lifetime = 0.1f;
     private float aliveFor = 0f;
+
 	// Use this for initialization
 	void Start () {
 	    
