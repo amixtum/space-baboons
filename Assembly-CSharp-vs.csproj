@@ -50,8 +50,9 @@
      <Compile Include="Assets\Scripts\GameStateBehaviour.cs" />
      <Compile Include="Assets\Scripts\GenerateStars.cs" />
      <Compile Include="Assets\Scripts\Gravity.cs" />
-     <Compile Include="Assets\Scripts\LaserBehaviour.cs" />
+     <Compile Include="Assets\Scripts\ObjectInfo.cs" />
      <Compile Include="Assets\Scripts\ParticleScript.cs" />
+     <Compile Include="Assets\Scripts\SingularityProjectileScript.cs" />
      <Compile Include="Assets\Scripts\SpaceshipMovement.cs" />
      <Compile Include="Assets\_MKGlowSystem\_Demo\Code\MK_DemoControl.cs" />
      <Compile Include="Assets\_MKGlowSystem\_Demo\Code\MK_RotateObject.cs" />

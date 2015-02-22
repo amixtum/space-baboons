@@ -19,6 +19,16 @@ public class GenerateStars : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Generate();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	    
+	}
+
+    private void Generate()
+    {
         bool finished = false;
         int numGenned = 0;
         List<Vector3> positions = new List<Vector3>();
@@ -32,7 +42,7 @@ public class GenerateStars : MonoBehaviour {
             Vector3 newPos = new Vector3(randX, randY, randZ);
 
             bool isUnique = true;
-            
+
             foreach (Vector3 pos in positions)
             {
                 if (Vector3.Distance(newPos, pos) < minDistance)
@@ -96,10 +106,5 @@ public class GenerateStars : MonoBehaviour {
         {
             Instantiate(sun, pos, Quaternion.identity);
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	    
-	}
+    }
 }

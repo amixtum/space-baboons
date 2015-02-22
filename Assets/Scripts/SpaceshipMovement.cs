@@ -32,6 +32,13 @@ public class SpaceshipMovement : MonoBehaviour {
         PlayEngineNoise();
     }
 
+    private void HandleInput()
+    {
+        RotationHandling();
+        AccelerationHandling();
+        EffectsLogic();
+    }
+
     private void ThrusterInterpolation(bool increasing)
     {
         if (increasing)
@@ -61,7 +68,7 @@ public class SpaceshipMovement : MonoBehaviour {
         }
     }
 
-    private void HandleInput()
+    private void RotationHandling()
     {
         if (Input.GetKey(KeyCode.W))
         {
@@ -79,39 +86,18 @@ public class SpaceshipMovement : MonoBehaviour {
         {
             RollRight();
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            playingEngineNoise = true;
-        }
-
+    private void AccelerationHandling()
+    {
         if (Input.GetKey(KeyCode.Space))
         {
             ForwardThrust();
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            increasingThrusters = true;
-        }
-
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            ParticleScript p = this.GetComponent<ParticleScript>();
-            increasingThrusters = false;
-            playingEngineNoise = false;
-        }
-
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            // not used now
-        }
-
         if (Input.GetKey(KeyCode.UpArrow))
         {
             UpThrust();
         }
-
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             LeftThrust();
@@ -121,15 +107,27 @@ public class SpaceshipMovement : MonoBehaviour {
         {
             RightThrust();
         }
-
         if (Input.GetKey(KeyCode.DownArrow))
         {
             DownThrust();
         }
+    }
 
-        if (Input.GetMouseButtonDown(0))
+    private void EffectsLogic()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            this.GetComponent<ParticleScript>().ShootLaser();
+            playingEngineNoise = true;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            increasingThrusters = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            ParticleScript p = this.GetComponent<ParticleScript>();
+            increasingThrusters = false;
+            playingEngineNoise = false;
         }
     }
 

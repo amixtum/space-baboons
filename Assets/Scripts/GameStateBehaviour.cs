@@ -15,11 +15,16 @@ public class GameStateBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        HandleInput();
+	}
+
+    private void HandleInput()
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Restart();
         }
-	}
+    }
 
     public void Restart()
     {

@@ -24,7 +24,7 @@ public class CameraLogic : MonoBehaviour {
 
         Camera.main.transform.rotation = spaceship.transform.rotation;
 
-        Camera.main.transform.LookAt(spaceship.transform);
+        //Camera.main.transform.LookAt(spaceship.transform);
     }
 
     private void MouseCam()

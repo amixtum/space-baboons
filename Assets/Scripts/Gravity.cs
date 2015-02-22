@@ -10,24 +10,34 @@ public class Gravity : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("gravity_object"))
-        {
-            gravityObjects.Add(obj);
-        }
+        AddGravityObjectsToList();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        HandleGravity();
+	}
+
+    private void AddGravityObjectsToList()
+    {
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("gravity_object"))
+        {
+            gravityObjects.Add(obj);
+        }
+    }
+
+    private void HandleGravity()
+    {
         foreach (GameObject obj in gravityObjects)
         {
             foreach (GameObject other in gravityObjects)
             {
                 float distance = (other.transform.position - obj.transform.position).magnitude;
                 Vector3 direction = (obj.transform.position - other.transform.position).normalized;
-                float forceMagnitude = other.rigidbody.mass  * obj.rigidbody.mass * (1 / Mathf.Pow(distance, distanceProportionality));
+                float forceMagnitude = other.rigidbody.mass * obj.rigidbody.mass * (1 / Mathf.Pow(distance, distanceProportionality));
 
                 other.rigidbody.AddForce(direction * forceMagnitude * forcePerMassUnit);
             }
         }
-	}
+    }
 }
