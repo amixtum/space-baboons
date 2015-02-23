@@ -32,11 +32,14 @@ public class Gravity : MonoBehaviour {
         {
             foreach (GameObject other in gravityObjects)
             {
-                float distance = (other.transform.position - obj.transform.position).magnitude;
-                Vector3 direction = (obj.transform.position - other.transform.position).normalized;
-                float forceMagnitude = other.rigidbody.mass * obj.rigidbody.mass * (1 / Mathf.Pow(distance, distanceProportionality));
+                if (obj != other)
+                {
+                    float distance = (other.transform.position - obj.transform.position).magnitude;
+                    Vector3 direction = (obj.transform.position - other.transform.position).normalized;
+                    float forceMagnitude = other.rigidbody.mass * obj.rigidbody.mass * (1 / Mathf.Abs(Mathf.Pow(distance, distanceProportionality)));
 
-                other.rigidbody.AddForce(direction * forceMagnitude * forcePerMassUnit);
+                    other.rigidbody.AddForce(direction * forceMagnitude * forcePerMassUnit);
+                }
             }
         }
     }

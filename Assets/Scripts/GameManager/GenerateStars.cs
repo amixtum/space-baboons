@@ -19,7 +19,10 @@ public class GenerateStars : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Generate();
+        if (numToGen > 0 && sunsToGen > 0)
+        {
+            Generate();
+        }
 	}
 	
 	// Update is called once per frame
@@ -57,7 +60,7 @@ public class GenerateStars : MonoBehaviour {
                 positions.Add(newPos);
             }
 
-            if (numGenned == numToGen)
+            if (numGenned >= numToGen)
             {
                 finished = true;
             }
@@ -71,8 +74,9 @@ public class GenerateStars : MonoBehaviour {
         positions.Clear();
 
         finished = false;
+        numGenned = 0;
 
-        for (int i = 0; i < sunsToGen; ++i)
+        while (!finished)
         {
             float randX = Random.Range(-xRange, xRange);
             float randY = Random.Range(-yRange, yRange);
@@ -96,7 +100,7 @@ public class GenerateStars : MonoBehaviour {
                 positions.Add(newPos);
             }
 
-            if (numGenned == numToGen)
+            if (numGenned >= sunsToGen)
             {
                 finished = true;
             }

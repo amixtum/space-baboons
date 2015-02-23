@@ -9,26 +9,11 @@ public class SpaceshipMovement : MonoBehaviour {
     public float maxThrusterLength = -2f;
     public float minThrusterLength = -0.5f;
 
-    private ParticleScript p;
-
-    private bool increasingThrusters = false;
     private bool playingEngineNoise = false;
-    private bool engineNoiseStarted = false;
-
-	// Use this for initialization
-	void Start () {
-        p = this.GetComponent<ParticleScript>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
-	}
 
     void FixedUpdate()
     {
         HandleInput();
-        ThrusterInterpolation(increasingThrusters);
         PlayEngineNoise();
     }
 
@@ -37,20 +22,6 @@ public class SpaceshipMovement : MonoBehaviour {
         RotationHandling();
         AccelerationHandling();
         EffectsLogic();
-    }
-
-    private void ThrusterInterpolation(bool increasing)
-    {
-        if (increasing)
-        {
-            float newParticleSpeed = Mathf.Lerp(p.GetParticleSpeed(), maxThrusterLength, particleInterpolate);
-            p.ChangeParticleSpeed(newParticleSpeed);
-        }
-        else
-        {
-            float newParticleSpeed = Mathf.Lerp(p.GetParticleSpeed(), minThrusterLength, particleInterpolate);
-            p.ChangeParticleSpeed(newParticleSpeed);
-        }
     }
 
     private void PlayEngineNoise()
@@ -119,14 +90,8 @@ public class SpaceshipMovement : MonoBehaviour {
         {
             playingEngineNoise = true;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            increasingThrusters = true;
-        }
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            ParticleScript p = this.GetComponent<ParticleScript>();
-            increasingThrusters = false;
             playingEngineNoise = false;
         }
     }
