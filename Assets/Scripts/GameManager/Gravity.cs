@@ -10,19 +10,43 @@ public class Gravity : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        AddGravityObjectsToList();
+        
 	}
-	
+
+    void LateUpdate()
+    {
+        AddGravityObjectsToList();
+    }
+
 	// Update is called once per frame
 	void FixedUpdate () {
+        
         HandleGravity();
 	}
 
+    public void RemoveFromGravityObjects(GameObject toRemove)
+    {
+        if (gravityObjects.Contains(toRemove))
+        {
+            gravityObjects.Remove(toRemove);
+        }
+    }
+
     private void AddGravityObjectsToList()
     {
-        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("gravity_object"))
+        GameObject[] objectsWithInfo = GameObject.FindGameObjectsWithTag("has_info");
+
+        foreach (GameObject obj in objectsWithInfo)
         {
-            gravityObjects.Add(obj);
+            if ((obj.GetComponent<ObjectInfo>().GetObjectType() 
+                                & ObjectInfo.ObjectType.Gravity) 
+                                != ObjectInfo.ObjectType.None)
+            {
+                if (!gravityObjects.Contains(obj))
+                {
+                    gravityObjects.Add(obj);
+                }
+            }
         }
     }
 
@@ -36,7 +60,8 @@ public class Gravity : MonoBehaviour {
                 {
                     float distance = (other.transform.position - obj.transform.position).magnitude;
                     Vector3 direction = (obj.transform.position - other.transform.position).normalized;
-                    float forceMagnitude = other.rigidbody.mass * obj.rigidbody.mass * (1 / Mathf.Abs(Mathf.Pow(distance, distanceProportionality)));
+                    float forceMagnitude = other.rigidbody.mass * obj.rigidbody.mass * 
+                                          (1 / Mathf.Abs(Mathf.Pow(distance, distanceProportionality)));
 
                     other.rigidbody.AddForce(direction * forceMagnitude * forcePerMassUnit);
                 }

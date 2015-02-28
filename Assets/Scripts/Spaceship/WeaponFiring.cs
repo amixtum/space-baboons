@@ -12,7 +12,7 @@ public class WeaponFiring : MonoBehaviour {
 
     private void HandleInput()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             GameObject projectile = Instantiate(singularityBall, cannonTransform.position, Quaternion.identity) as GameObject;
 

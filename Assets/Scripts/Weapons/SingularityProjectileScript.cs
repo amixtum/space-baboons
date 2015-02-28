@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SingularityProjectileScript : MonoBehaviour {
     public float impulseForce = 100f;
@@ -8,9 +9,16 @@ public class SingularityProjectileScript : MonoBehaviour {
     public float gravityRadius = 100f;
     public float gravityForce = 100f;
 
+    private GameObject _GameManager;
+
     private float timeAlive = 0f;
 
     private bool hasCollided = false;
+
+    void Start()
+    {
+        _GameManager = GameObject.FindGameObjectWithTag("GameController");
+    }
 
     void Update()
     {
@@ -40,6 +48,7 @@ public class SingularityProjectileScript : MonoBehaviour {
         timeAlive += Time.deltaTime;
         if (timeAlive >= lifetime)
         {
+            _GameManager.GetComponent<Gravity>().RemoveFromGravityObjects(this.gameObject);
             Destroy(this.gameObject);
         }
     }
@@ -50,17 +59,31 @@ public class SingularityProjectileScript : MonoBehaviour {
 
         if (timeAlive >= lifeAfterCollision)
         {
+            _GameManager.GetComponent<Gravity>().RemoveFromGravityObjects(this.gameObject);
             Destroy(this.gameObject);
         }
     }
 
     private void ApplyGravityNearSphere()
     {
-        RaycastHit[] objectsInSphere;
+        List<RaycastHit> objectsInSphere = new List<RaycastHit>();
 
-        objectsInSphere = Physics.SphereCastAll(this.transform.position, gravityRadius, this.transform.right, 1000);
+        RaycastHit[] rightSweep;
+        RaycastHit[] leftSweep;
+        RaycastHit[] upSweep;
+        RaycastHit[] downSweep;
 
-        if (objectsInSphere.Length > 0)
+        rightSweep = Physics.SphereCastAll(this.transform.position, gravityRadius, this.transform.right, 100);
+        leftSweep = Physics.SphereCastAll(this.transform.position, gravityRadius, -this.transform.right, 100);
+        upSweep = Physics.SphereCastAll(this.transform.position, gravityRadius, this.transform.up, 100);
+        downSweep = Physics.SphereCastAll(this.transform.position, gravityRadius, -this.transform.up, 100);
+
+        objectsInSphere.AddRange(rightSweep);
+        objectsInSphere.AddRange(leftSweep);
+        objectsInSphere.AddRange(upSweep);
+        objectsInSphere.AddRange(downSweep);
+
+        if (objectsInSphere.Count > 0)
         {
             foreach (RaycastHit hit in objectsInSphere)
             {
@@ -72,10 +95,10 @@ public class SingularityProjectileScript : MonoBehaviour {
                     {
                         ObjectInfo info = objectHit.GetComponent<ObjectInfo>();
 
-                        if ((info.GetObjectType() & ObjectInfo.ObjectType.Gravity) != 0)
+                        if ((info.GetObjectType() & ObjectInfo.ObjectType.Gravity) != ObjectInfo.ObjectType.None)
                         {
                             Vector3 directionToSphere = (this.transform.position - objectHit.transform.position).normalized;
-                            objectHit.rigidbody.AddForce(directionToSphere * gravityForce,ForceMode.Impulse);
+                            objectHit.rigidbody.AddForce(directionToSphere * gravityForce);
                         }
                     }
                 }
