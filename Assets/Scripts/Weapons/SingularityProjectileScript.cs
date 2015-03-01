@@ -41,6 +41,7 @@ public class SingularityProjectileScript : MonoBehaviour {
     {
         hasCollided = true;
         timeAlive = 0;
+        Debug.Log("Has Collided");
     }
 
     private void PostFireLogic()

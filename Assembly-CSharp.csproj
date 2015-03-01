@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Camera\CameraLogic.cs" />
      <Compile Include="Assets\Scripts\GameManager\GameStateBehaviour.cs" />
+     <Compile Include="Assets\Scripts\GameManager\GenerateSpaceships.cs" />
      <Compile Include="Assets\Scripts\GameManager\GenerateStars.cs" />
      <Compile Include="Assets\Scripts\GameManager\Gravity.cs" />
      <Compile Include="Assets\Scripts\General\ObjectInfo.cs" />
