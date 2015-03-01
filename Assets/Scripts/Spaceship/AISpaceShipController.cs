@@ -1,46 +1,119 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AISpaceShipController : MonoBehaviour {
     private SpaceshipMovement movementScript;
 
-    public GameObject target;
+    private List<GameObject> spaceships = new List<GameObject>();
+
+    private GameObject target;
 
     public float minimumThrustRadius = 60f;
     public float minimumFireRadius = 15f;
     public float rotationError = 15f;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
         movementScript = this.GetComponent<SpaceshipMovement>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
+        FindSpaceshipsInScene();
+
+        if (!HasTarget())
+        {
+            AcquireTarget();
+        }
+
         ExecuteLogic();
 	}
 
+    private void FindSpaceshipsInScene()
+    {
+        GameObject[] infoObjects = GameObject.FindGameObjectsWithTag("has_info");
+
+        foreach (GameObject obj in infoObjects)
+        {
+            ObjectInfo objInfo = obj.GetComponent<ObjectInfo>();
+
+            if ((objInfo.GetObjectType() 
+                & ObjectInfo.ObjectType.Spaceship) 
+                != ObjectInfo.ObjectType.None)
+            {
+                if (!spaceships.Contains(obj) && obj != this.gameObject)
+                {
+                    spaceships.Add(obj);
+                }
+            }
+        }
+    }
+
+    private GameObject GetNearestSpaceship()
+    {
+        if (spaceships.Count > 0)
+        {
+            float distance = Vector3.Distance(this.transform.position, 
+                                              spaceships[0].transform.position);
+
+            GameObject closestShip = spaceships[0];
+            float closestDistance = distance;
+
+            foreach (GameObject ship in spaceships)
+            {
+                distance = Vector3.Distance(this.transform.position, ship.transform.position);
+
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestShip = ship;
+                }
+            }
+
+            return closestShip;
+        }
+        return null;
+    }
+
+    private void AcquireTarget()
+    {
+        target = GetNearestSpaceship();
+    }
+
+    public bool HasTarget()
+    {
+        return (target != null);
+    }
+
     private void ExecuteLogic()
     {
-        if (ShouldPitchDown())
+        if (HasTarget())
         {
-            movementScript.PitchDown();
-        }
-        if (ShouldPitchUp())
-        {
-            movementScript.PitchUp();
-        }
-        if (ShouldRollLeft())
-        {
-            movementScript.RollLeft();
-        }
-        if (ShouldRollRight())
-        {
-            movementScript.RollRight();
-        }
-        if (ShouldThrust())
-        {
-            movementScript.ForwardThrust();
+            if (ShouldPitchDown())
+            {
+                movementScript.PitchDown();
+            }
+            if (ShouldPitchUp())
+            {
+                movementScript.PitchUp();
+            }
+            if (ShouldRollLeft())
+            {
+                movementScript.RollLeft();
+            }
+            if (ShouldRollRight())
+            {
+                movementScript.RollRight();
+            }
+            if (ShouldThrust())
+            {
+                movementScript.ForwardThrust();
+            }
+
+            AcquireTarget();
         }
     }
 

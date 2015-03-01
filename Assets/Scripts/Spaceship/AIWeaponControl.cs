@@ -25,13 +25,16 @@ public class AIWeaponControl : MonoBehaviour {
 
     private void ExecuteLogic()
     {
-        if (aiInfo.ShouldFire())
+        if (aiInfo.HasTarget())
         {
-            if (canFire)
+            if (aiInfo.ShouldFire())
             {
-                weaponScript.FireWeapon();
-                canFire = false;
-                timeSinceLastFire = 0f;
+                if (canFire)
+                {
+                    weaponScript.FireWeapon();
+                    canFire = false;
+                    timeSinceLastFire = 0f;
+                }
             }
         }
     }
