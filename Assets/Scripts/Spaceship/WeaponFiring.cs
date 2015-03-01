@@ -5,18 +5,10 @@ public class WeaponFiring : MonoBehaviour {
     public GameObject singularityBall;
     public Transform cannonTransform;
 
-    void FixedUpdate()
+    public void FireWeapon()
     {
-        HandleInput();
-    }
+        GameObject projectile = Instantiate(singularityBall, cannonTransform.position, Quaternion.identity) as GameObject;
 
-    private void HandleInput()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            GameObject projectile = Instantiate(singularityBall, cannonTransform.position, Quaternion.identity) as GameObject;
-
-            projectile.GetComponent<SingularityProjectileScript>().Fire(cannonTransform.forward);
-        }
+        projectile.GetComponent<SingularityProjectileScript>().Fire(cannonTransform.forward);
     }
 }

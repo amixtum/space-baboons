@@ -51,7 +51,11 @@
      <Compile Include="Assets\Scripts\GameManager\GenerateStars.cs" />
      <Compile Include="Assets\Scripts\GameManager\Gravity.cs" />
      <Compile Include="Assets\Scripts\General\ObjectInfo.cs" />
+     <Compile Include="Assets\Scripts\Spaceship\AISpaceShipController.cs" />
+     <Compile Include="Assets\Scripts\Spaceship\AIWeaponControl.cs" />
      <Compile Include="Assets\Scripts\Spaceship\ParticleScript.cs" />
+     <Compile Include="Assets\Scripts\Spaceship\PlayerSpaceShipController.cs" />
+     <Compile Include="Assets\Scripts\Spaceship\PlayerWeaponControl.cs" />
      <Compile Include="Assets\Scripts\Spaceship\SpaceshipMovement.cs" />
      <Compile Include="Assets\Scripts\Spaceship\WeaponFiring.cs" />
      <Compile Include="Assets\Scripts\Weapons\SingularityProjectileScript.cs" />
